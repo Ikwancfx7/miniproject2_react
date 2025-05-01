@@ -1,4 +1,4 @@
-function RegisterForm () {
+function RegisterForm ({setPage}) {
     return (
         <>
             <div className='flex justify-center items-center w-full h-screen'>
@@ -32,7 +32,9 @@ function RegisterForm () {
                         </div>
                         <div>
                             <p>
-                                Sudah punya akun? <span><a className='text-slate-700 hover:text-slate-900' href="#">Login</a></span>
+                                Sudah punya akun? <span><a 
+                                    onClick={()=>setPage('login')}
+                                    className='text-slate-700 hover:text-slate-900' href="#">Login</a></span>
                             </p>
                         </div>
                     </form>

@@ -2,7 +2,7 @@ import IconPerson from '../src/assets/IconPerson.png'
 // import IconPassword from '../src/assets/IconPassword.png'
 // import { useState } from 'react';
 
-function LoginForm () {
+function LoginForm ({setPage}) {
     return (
         <>
             <div className='flex justify-center items-center w-full h-screen'>
@@ -41,7 +41,9 @@ function LoginForm () {
                         </div>
                         <div>
                             <p>
-                                Belum punya akun? <span><a className='text-slate-700 hover:text-slate-900' href="#">Daftar</a></span>
+                                Belum punya akun? <span><a 
+                                    onClick={()=>setPage('daftar')}
+                                    className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</a></span>
                             </p>
                         </div>
                     </form>
