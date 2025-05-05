@@ -12,10 +12,10 @@ function Navbar () {
                     to={'/'}
                     onClick={()=>setPage('Home')}
                     className={`px-8 py-2 rounded-4xl text-slate-900 hover:cursor-pointer
-                        ${currentPage === 'Home' ? "font-bold": ""}`
+                        ${currentPage === 'Home' ? "font-bold": "font-normal"}`
                     }
                 >
-                    <p>Home</p>
+                    <p>Dashboard</p>
                 </Link>
            </div>
             <div className="flex flex-row gap-5 py-3">

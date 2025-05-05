@@ -1,9 +1,43 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import IconPerson from '../src/assets/IconPerson.png'
+import axios from 'axios';
+import { useState } from 'react';
 // import IconPassword from '../src/assets/IconPassword.png'
-// import { useState } from 'react';
 
 function LoginForm () {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const Navigate = useNavigate();
+    const API = 'https://reqres.in/api/login';
+    
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post(API, {
+                email: email,
+                password: password
+            }, {
+                headers: {
+                    'x-api-key': 'reqres-free-v1',
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log('Login success',response);
+            setMessage('Login success');
+            if(response.status === 200){
+                localStorage.setItem('token', response.data.token);
+                Navigate('/');
+            }
+        } catch (error){
+            if(error.response){
+                console.error("Error detail:", error);
+                setMessage(error.response.data.error || "Login failed");
+            } else {
+                setMessage('Terjadi kesalahan jaringan')
+            }
+        }
+    }
     return (
         <>
             <div className='flex justify-center items-center w-full h-screen'>
@@ -12,20 +46,22 @@ function LoginForm () {
                         src={IconPerson} 
                         className='h-18 aspect-square'/>
                     <p className='text-2xl text-slate-950'>Login Member</p>
-                    <form action="" className='flex flex-col gap-2 p-5'>
+                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-2 p-5'>
                         <div className='flex flex-row h-12'>
                             <input 
                                 type="text" 
                                 placeholder="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className='rounded-lg px-4 bg-white w-85'/>
-                            {/* <img src={IconPerson} className='absolute aspect-square object-contain h-8 w-8 mt-2 ml-1'/> */}
                         </div>
                         <div className='flex flex-row h-12'>
                             <input
                                 type="text"
                                 placeholder="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className='rounded-lg px-4 bg-white w-85'/>
-                            {/* <img src={IconPassword} className='absolute aspect-square object-contain h-8 w-8 mt-2 ml-1'/> */}
                         </div>
                         <div>
                             <a 
@@ -40,6 +76,7 @@ function LoginForm () {
                                 className='rounded-lg bg-slate-700 w-85 hover:bg-slate-800 hover:cursor-pointer text-sky-50'
                             >Login</button>
                         </div>
+                        {message && (<p className={`text-center text-sm mt-2 ${message === 'Login success' ? 'text-green-600' : 'text-red-600'}`}>{message}</p>)}
                         <div>
                             <p>
                                 Belum punya akun? <span><Link

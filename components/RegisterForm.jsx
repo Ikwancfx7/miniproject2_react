@@ -81,7 +81,7 @@ function RegisterForm () {
                             >Daftar</button>
                         </div>
                         {message && (
-                            <p className="text-center text-sm text-red-600 mt-2">{message}</p>)}
+                            <p className={`text-center text-sm mt-2 ${message === 'Success' ? 'text-green-600' : 'text-red-600'}`}>{message}</p>)}
                         <div>
                             <p>
                                 Sudah punya akun? <span><Link 
