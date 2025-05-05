@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import IconPerson from '../src/assets/IconPerson.png'
 // import IconPassword from '../src/assets/IconPassword.png'
 // import { useState } from 'react';
 
-function LoginForm ({setPage}) {
+function LoginForm () {
     return (
         <>
             <div className='flex justify-center items-center w-full h-screen'>
@@ -41,9 +42,9 @@ function LoginForm ({setPage}) {
                         </div>
                         <div>
                             <p>
-                                Belum punya akun? <span><a 
-                                    onClick={()=>setPage('daftar')}
-                                    className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</a></span>
+                                Belum punya akun? <span><Link
+                                    to={'/daftar'} 
+                                    className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</Link></span>
                             </p>
                         </div>
                     </form>

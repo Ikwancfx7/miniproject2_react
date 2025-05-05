@@ -1,4 +1,5 @@
-function RegisterForm ({setPage}) {
+import { Link } from "react-router-dom";
+function RegisterForm () {
     return (
         <>
             <div className='flex justify-center items-center w-full h-screen'>
@@ -32,9 +33,9 @@ function RegisterForm ({setPage}) {
                         </div>
                         <div>
                             <p>
-                                Sudah punya akun? <span><a 
-                                    onClick={()=>setPage('login')}
-                                    className='text-slate-700 hover:text-slate-900' href="#">Login</a></span>
+                                Sudah punya akun? <span><Link 
+                                    to={'/login'}
+                                    className='text-slate-700 hover:text-slate-900' href="#">Login</Link></span>
                             </p>
                         </div>
                     </form>
