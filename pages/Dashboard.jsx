@@ -1,9 +1,9 @@
 import Navbar from "../components/Navbar";
 
-function Dashboard () {
+function Dashboard ({currentPage, setCurrentPage}) {
     return (
         <>
-            <Navbar/>
+            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('Home')}/>
             <h1>Home</h1>
         </> 
     )

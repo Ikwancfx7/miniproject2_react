@@ -7,6 +7,7 @@ function ProtectedRouted({ children }) {
     if(!token) {
         return <Navigate to="/login" />
     }
+
     return <>{children || <Outlet />} </>;
 }
 

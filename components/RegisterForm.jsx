@@ -45,8 +45,8 @@ function RegisterForm () {
 
     return (
         <>
-            <div className='flex justify-center items-center w-full h-screen'>
-                <div className='flex flex-col justify-center items-center bg-slate-300/70 p-6 rounded-lg backdrop-blur-md'>
+            <div>
+                <div className='flex flex-col justify-center items-center bg-slate-300/70 p-6 rounded-lg backdrop-blur-md sahdow-2xl mt-20'>
                     <p className='text-2xl text-slate-950'>Registration Form</p>
                     <form onSubmit={handleSubmit} action="" className='flex flex-col gap-2 p-5'>
                         <div className='flex flex-row h-12'>
