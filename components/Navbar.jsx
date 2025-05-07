@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Navbar ({currentPage}) {
     
-    
     const token = localStorage.getItem('token');
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -12,7 +11,7 @@ function Navbar ({currentPage}) {
     if(token){
         return(
             <>
-                <header className="flex flex-row items-center justify-between px-5 lg:px-10 bg-slate-100 text-lg lg:text-2xl">
+                <header className="flex flex-row items-center justify-between px-5 lg:px-10 text-lg lg:text-2xl bg-slate-300 shadow-sm">
                     <div className="flex flex-row">
                         <Link 
                             to={'/'}
