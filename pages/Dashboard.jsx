@@ -1,8 +1,5 @@
 import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
-import ListUser from "../components/ListUser";
-// import SingleUser from "../components/SingleUser";
-// import { useLocation } from "react-router-dom";
 
 function Dashboard ({currentPage, setCurrentPage}) {
     // const location = useLocation();
