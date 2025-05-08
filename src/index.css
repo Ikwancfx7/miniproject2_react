@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
 .button-1{
-  @apply text-slate-950 hover:font-bold px-1 py-1 m-2 rounded-2xl hover:cursor-pointer
+  @apply flex justify-center text-slate-950 hover:text-slate-700 px-1 py-1 m-2 rounded-2xl hover:cursor-pointer
 }
 .list-1{
-  @apply grid grid-cols-2 content-center border
+  @apply grid grid-cols-2 content-center border mt-2 px-3
+}
+.table, th, td {
+  border: 1px solid black;
+}
+.th, td {
+  padding: 2px 10px 2px 10px;
 }
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
