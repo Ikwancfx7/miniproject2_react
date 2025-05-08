@@ -22,15 +22,17 @@ function ListUser () {
             console.error(error);
         }
     }
-    const handlePageChange = () => {
-        if(page < totalPages) {
-            return setPage(page + 1);
-        }
-    }
-    const handlePrevPageChange = () => {
-        if(page > 0) {
-            return setPage(page - 1);
-        }
+
+    const changePage = (direction) => {
+            setPage((prev=>{
+                const nextPage = direction === 'next' ? prev + 1 : prev - 1;
+                
+                if(nextPage >= 1 && nextPage <= totalPages) {
+                    return nextPage;
+                } else {
+                    return prev;
+                }   
+            }))
     }
 
     useEffect(() => {
@@ -56,10 +58,10 @@ function ListUser () {
                 ))}
             </table>
             <div className="my-2 flex justify-end gap-3 w-full">
-                <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={handlePrevPageChange}>
+                <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={()=>changePage('prev')}>
                     Prev Page
                 </button>
-                <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={handlePageChange}>
+                <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={()=>changePage('next')}>
                     Next Page
                 </button>
             </div>
