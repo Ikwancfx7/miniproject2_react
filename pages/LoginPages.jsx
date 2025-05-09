@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import LoginForm from "../components/loginForm";
+import LoginForm from "../components/LoginForm";
 
 function LoginPages ({currentPage, setCurrentPage}) {
     return (
