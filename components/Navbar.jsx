@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar ({currentPage}) {
-    
     const token = localStorage.getItem('token');
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -10,8 +9,8 @@ function Navbar ({currentPage}) {
 
     if(token){
         return(
-            <>
-                <header className="flex flex-row items-center justify-between px-5 lg:px-10 text-lg lg:text-2xl bg-slate-300 shadow-sm">
+            <div className="bg-slate-200 shadow">
+                <header className="container mx-auto flex flex-row items-center justify-between px-5 lg:px-10 text-lg lg:text-2xl py-2">
                     <div className="flex flex-row">
                         <Link 
                             to={'/'}
@@ -22,7 +21,7 @@ function Navbar ({currentPage}) {
                             <p>Dashboard</p>
                         </Link>
                     </div>
-                    <div className="flex flex-row gap-5 py-3">
+                    <div className="flex flex-row">
                         <Link
                             to={'/login'} 
                             onClick={handleLogout}
@@ -33,7 +32,7 @@ function Navbar ({currentPage}) {
                         </Link>
                     </div>
                 </header>
-            </>
+            </div>
         )
     }
 

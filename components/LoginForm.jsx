@@ -15,8 +15,8 @@ function LoginForm () {
         e.preventDefault();
         try {
             const response = await axios.post(API, {
-                email: email,
-                password: password
+                email,
+                password
             }, {
                 headers: {
                     'x-api-key': 'reqres-free-v1',
@@ -24,8 +24,8 @@ function LoginForm () {
                 }
             });
             console.log('Login success',response);
-            setMessage('Login success');
             if(response.status === 200){
+                setMessage('Login success');
                 localStorage.setItem('token', response.data.token);
                 Navigate('/');
             }

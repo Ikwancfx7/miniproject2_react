@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 function ListUser () {
     const [data, setData] = useState(null);
     const [page, setPage] = useState(1);
-    const [loading, setLoading] = useState(true);
     const [totalPages, setTotalPages] = useState(1);
     const API = `https://reqres.in/api/users?page=`
 
@@ -18,11 +17,9 @@ function ListUser () {
                 }
             });
             setData(response.data.data);
-            setLoading(false);
             setTotalPages(response.data.total_pages);
         } catch (error) {
             console.error(error);
-            setLoading(false);
         }
     }
 
@@ -44,7 +41,6 @@ function ListUser () {
 
     return (
         <div>
-            {/* <button className="bg-green-800 text-white px-3 py-2 m-2 hover:cursor-pointer" onClick={getUser}>Get User</button> */}
             <p className="text-md lg:text-lg font-bold mt-10">List Users:</p>
             {data ? (
                 <table className="mt-2 w-full">
@@ -56,7 +52,7 @@ function ListUser () {
                     {data.map((user) => (
                         <tr key={user.id}>
                             <td><div className="flex items-center justify-center">{user.id}</div></td>
-                            <td><div className="flex items-center justify-center w-[400px] mx-auto">{user.first_name} {user.last_name}</div></td>
+                            <td><div className="flex items-center justify-center w-[180px] md:w-[400px] mx-auto">{user.first_name} {user.last_name}</div></td>
                             <td><Link className="button-1" to={`/single-user/${user.id}`}>Detile</Link></td>
                         </tr>
                     ))}

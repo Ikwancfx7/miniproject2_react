@@ -30,6 +30,9 @@ function RegisterForm () {
                 }
             });
             console.log(response);
+            setEmail('');
+            setPassword('');
+            setRePassword('');
             if(response.status === 200){
                 setMessage('Success');
             }
