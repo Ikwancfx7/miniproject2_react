@@ -62,10 +62,10 @@ function ListUser () {
             )}
             <div className="my-2 flex justify-end gap-3 w-full">
                 <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={()=>changePage('prev')}>
-                    Prev Page
+                    ← Prev
                 </button>
                 <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={()=>changePage('next')}>
-                    Next Page
+                    Next →
                 </button>
             </div>
         </div>
