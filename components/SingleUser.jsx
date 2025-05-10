@@ -38,7 +38,7 @@ function SingleUser () {
                         <div className="flex flex-col md:flex-row items-center gap-5 p-2 px-3 w-full max-w-4xl text-slate-950" key={user.id}>
                             <img src={user.avatar} alt={user.first_name} className="rounded-full w-36 h-36 object-cover" />
                             <div className="flex flex-col gap-1 text-center md:text-left">
-                                <p className="font-bold">{user.first_name} {user.last_name}</p>
+                                <p className="font-bold text-xl">{user.first_name} {user.last_name}</p>
                                 <p className="italic">{user.email}</p>
                                 <a href={support.url} className="hover:text-blue-900">{support.url}</a>
                                 <p>{support.text}</p>
