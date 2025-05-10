@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ function RegisterForm () {
     const [password, setPassword] = useState('');  
     const [rePassword, setRePassword] = useState('');
     const [message, setMessage] = useState('');
+    const Navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,6 +36,9 @@ function RegisterForm () {
             setRePassword('');
             if(response.status === 200){
                 setMessage('Success');
+                setTimeout(() => {
+                    Navigate('/login');
+                }, 1000);
             }
         } catch (error) {
             if(error.response){
@@ -48,11 +52,11 @@ function RegisterForm () {
 
     return (
         <>
-            <div>
-                <div className='flex flex-col justify-center items-center bg-slate-300/70 p-6 rounded-lg backdrop-blur-md sahdow-2xl mt-20'>
+            <div className="flex justify-center">
+                <div className='flex flex-col justify-center items-center p-6 rounded-lg shadow-2xl mt-20'>
                     <p className='text-2xl text-slate-950'>Registration Form</p>
-                    <form onSubmit={handleSubmit} action="" className='flex flex-col gap-2 p-5'>
-                        <div className='flex flex-row h-12'>
+                    <form onSubmit={handleSubmit} action="" className='flex flex-col gap-3 md:gap-4 p-5'>
+                        <div className='flex flex-row h-10 md:h-12'>
                             <input 
                                 type="text" 
                                 placeholder="Masukkan email"
@@ -60,7 +64,7 @@ function RegisterForm () {
                                 onChange={(e) => setEmail(e.target.value)}
                                 className='rounded-lg px-4 bg-white w-85'/>
                         </div>
-                        <div className='flex flex-row h-12'>
+                        <div className='flex flex-row h-10 md:h-12'>
                             <input
                                 type="password"
                                 placeholder="Masukkan password"
@@ -68,7 +72,7 @@ function RegisterForm () {
                                 onChange={(e) => setPassword(e.target.value)}
                                 className='rounded-lg px-4 bg-white w-85'/>
                         </div>
-                        <div className='flex flex-row h-12'>
+                        <div className='flex flex-row h-10 md:h-12'>
                             <input
                                 type="password"
                                 placeholder="Masukkan ulang password"
@@ -76,7 +80,7 @@ function RegisterForm () {
                                 onChange={(e) => setRePassword(e.target.value)}
                                 className='rounded-lg px-4 bg-white w-85'/>
                         </div>
-                        <div className='flex flex-row h-12'>
+                        <div className='flex flex-row h-10 md:h-12'>
                             <button
                                 type="submit"
                                 placeholder="password"
