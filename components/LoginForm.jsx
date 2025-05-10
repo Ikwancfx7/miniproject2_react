@@ -2,7 +2,6 @@ import { Link, useNavigate  } from 'react-router-dom';
 import IconPerson from '../src/assets/IconPerson.png'
 import axios from 'axios';
 import { useState } from 'react';
-// import IconPassword from '../src/assets/IconPassword.png'
 
 function LoginForm () {
     const [email, setEmail] = useState('');
@@ -24,29 +23,29 @@ function LoginForm () {
                 }
             });
             console.log('Login success',response);
-            if(response.status === 200){
-                setMessage('Login success');
-                localStorage.setItem('token', response.data.token);
+            setMessage('Login success');
+            localStorage.setItem('token', response.data.token);
+            setTimeout(() => {
                 Navigate('/');
-            }
+            }, 1000);
         } catch (error){
             if(error.response){
                 console.error("Error detail:", error);
                 setMessage(error.response.data.error || "Login failed");
             } else {
-                setMessage('Terjadi kesalahan jaringan')
+                setMessage('Something went wrong');
             }
         }
     }
     return (
         <>
-            <div >
-                <div className='container mx-auto flex flex-col justify-center items-center rounded-lg shadow-2xl bg-slate-300 backdrop-blur-md mt-20'>
+            <div className='flex justify-center'>
+                <div className='flex flex-col justify-center items-center rounded-lg shadow-2xl mt-20'>
                     <img 
                         src={IconPerson} 
                         className='h-14 md:h-18 aspect-square'/>
                     <p className='text-xl md:text-2xl text-slate-950'>Login Member</p>
-                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-2 p-5'>
+                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-3 md:gap-4 p-5'>
                         <div className='flex flex-row h-10 md:h-12'>
                             <input 
                                 type="text" 
@@ -62,12 +61,6 @@ function LoginForm () {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className='rounded-lg px-4 bg-white w-85'/>
-                        </div>
-                        <div>
-                            <a 
-                                className='text-slate-700 hover:text-slate-900'
-                                href="#"
-                            >Lupa password?</a>
                         </div>
                         <div className='flex flex-row h-10 md:h-12'>
                             <button
