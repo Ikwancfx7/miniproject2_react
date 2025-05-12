@@ -45,7 +45,6 @@ function LoginForm () {
                     console.error("Error detail:", error);
                     setMessage(error.response.data.error || "Login failed");
                 }, 2000);
-                setMessage('');
             } else {
                 setTimeout(() => {
                     setLoading(false);
@@ -62,41 +61,62 @@ function LoginForm () {
     return (
         <>
             <div className='flex justify-center'>
-                <div className='flex flex-col justify-center items-center rounded-lg shadow-xl/70 mt-20'>
-                    <img 
-                        src={IconPerson} 
-                        className='h-14 md:h-18 aspect-square'/>
-                    <p className='text-xl md:text-2xl text-slate-950'>Login Member</p>
-                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-3 md:gap-4 p-5 text-sm lg:text-lg'>
-                        <div className='flex flex-row h-10 md:h-12'>
+                <div className='flex flex-col bg-slate-200 justify-center px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-20'>
+                    <div className='flex flex-col items-center'>
+                        <img 
+                            src={IconPerson} 
+                            className='h-14 md:h-18 aspect-square'/>
+                        <p className='text-xl md:text-2xl text-slate-950'>Login Member</p>
+                    </div>
+                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-7 lg:gap-6 px-5 text-sm lg:text-lg mt-5'>
+                        <div className='flex flex-row h-12 md:h-13'>
                             <input 
                                 type="text" 
                                 placeholder="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className='rounded-lg px-4 bg-white w-85'/>
+                                className='rounded-lg px-4 bg-white w-full'/>
                         </div>
-                        <div className='flex flex-row h-10 md:h-12'>
+                        <div className='flex flex-row h-12 md:h-13'>
                             <input
                                 type="password"
                                 placeholder="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className='rounded-lg px-4 bg-white w-85'/>
+                                className='rounded-lg px-4 bg-white w-full'/>
                         </div>
                         
-                        <div className='flex flex-row h-10 md:h-12'>
+                        <div className='flex flex-row h-12 md:h-13'>
                             <button
                                 type="submit"
-                                disabled={loading}
-                                aria-disabled={!valid}
-                                className={`rounded-lg bg-slate-700 w-85 text-sky-50 ${valid ? 'hover:bg-slate-800 hover:cursor-pointer':'pointer-events-none opacity-50'}`}
+                                disabled={loading || !valid}
+                                className={`rounded-lg bg-slate-700 w-75 md:w-85 text-sky-50 ${valid ? 'hover:bg-slate-800 hover:cursor-pointer':'pointer-events-none opacity-50'}`}
                             >
                                 {loading ? (
                                     <div className='flex flex-row justify-center items-center'>
                                         <div>
                                             <svg className="mr-3 size-5 animate-spin" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <circle
+                                                    className="opacity-25"
+                                                    fill="none"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                    strokeLinecap="round"
+                                                >
+                                                </circle>
+                                                <circle 
+                                                    className="opacity-80" 
+                                                    fill="none" cx="12" cy="12" r="10" 
+                                                    stroke="currentColor" 
+                                                    strokeWidth="4" 
+                                                    strokeLinecap="round"
+                                                    strokeDasharray="60"
+                                                    strokeDashoffset="30"
+                                                >    
+                                                </circle>
                                             </svg>
                                         </div>
                                         <div>Login</div>
@@ -106,15 +126,19 @@ function LoginForm () {
                                 )}
                             </button>
                         </div>
-                        {message && (<p className={`text-center text-lg mt-2 ${message === 'Login success' ? 'text-green-600' : 'text-red-600'}`}>{message}</p>)}
-                        <div>
-                            <p>
-                                Belum punya akun? <span><Link
-                                    to={'/daftar'} 
-                                    className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</Link></span>
-                            </p>
-                        </div>
                     </form>
+                    {message && (
+                        <div className='mt-5'>
+                            <p className={`text-center lg:text-lg ${message === 'Login success' ? 'text-green-600' : 'text-red-600'}`}>{message}</p>
+                        </div>
+                    )}
+                    <div className='flex justify-start mt-5'>
+                        <p className='text-sm lg:text-lg'>
+                            Belum punya akun? <span><Link
+                                to={'/daftar'} 
+                                className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</Link></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </>
