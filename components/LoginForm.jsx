@@ -61,7 +61,7 @@ function LoginForm () {
     return (
         <>
             <div className='flex justify-center'>
-                <div className='flex flex-col bg-slate-200 justify-center px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-20'>
+                <div className='flex flex-col bg-slate-200 justify-center px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-15'>
                     <div className='flex flex-col items-center'>
                         <img 
                             src={IconPerson} 
@@ -90,7 +90,7 @@ function LoginForm () {
                             <button
                                 type="submit"
                                 disabled={loading || !valid}
-                                className={`rounded-lg bg-slate-700 w-75 md:w-85 text-sky-50 ${valid ? 'hover:bg-slate-800 hover:cursor-pointer':'pointer-events-none opacity-50'}`}
+                                className={`rounded-lg bg-slate-700 w-75 md:w-95 text-sky-50 ${valid ? 'hover:bg-slate-800 hover:cursor-pointer':'pointer-events-none opacity-50'}`}
                             >
                                 {loading ? (
                                     <div className='flex flex-row justify-center items-center'>

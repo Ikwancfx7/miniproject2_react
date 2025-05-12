@@ -8,7 +8,7 @@ function Navbar ({currentPage}) {
 
     if(token){
         return(
-            <div className="bg-slate-200 shadow">
+            <div className="bg-[rgba(4,144,1,0.2)] shadow">
                 <header className="container mx-auto flex flex-row items-center justify-between px-5 lg:px-10 py-2">
                     <div className="flex flex-row text-lg lg:text-2xl">
                         <Link 

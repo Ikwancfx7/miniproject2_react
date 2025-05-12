@@ -75,7 +75,7 @@ function RegisterForm () {
     return (
         <>
             <div className="flex justify-center">
-                <div className='flex flex-col justify-center items-center px-8 py-10 bg-slate-200 rounded-lg shadow-xl/70 mt-10 md:mt-20'>
+                <div className='flex flex-col justify-center items-center px-8 py-10 bg-slate-200 rounded-lg shadow-xl/70 mt-10 md:mt-15'>
                     <p className='text-2xl text-slate-950'>Register Form</p>
                     <form onSubmit={handleSubmit} action="" className='flex flex-col gap-7 lg:gap-6 md:gap-4 px-5 mt-5'>
                         <div className='flex flex-row h-12 md:h-13'>
