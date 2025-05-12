@@ -43,8 +43,8 @@ function ListUser () {
     }, [page]);
 
     return (
-        <div>
-            <p className="text-md lg:text-lg font-bold mt-10">List Users:</p>
+        <div className="py-7 lg:py-10 lg:px-30">
+            <p className="flex content-center justify-center text-lg lg:text-3xl font-semibold mb-5">Users Profile</p>
             {loading ? (
                 <div className="flex justify-center items-center h-screen -mt-30">
                         <svg className="mr-3 size-20 animate-spin" viewBox="0 0 24 24">
@@ -72,30 +72,33 @@ function ListUser () {
                         </svg>
                     </div>
             ):  data ? (
-                    <table className="mt-2 w-full">
-                        <tr>
-                            <th className="w-12 h-12">No</th>
-                            <th>Name</th>
-                            <th>Action</th> 
-                        </tr>
+                    <div className="mt-2 w-full grid grid-cols-3 gap-4">
                         {data.map((user) => (
-                            <tr key={user.id}>
-                                <td><div className="flex items-center justify-center">{user.id}</div></td>
-                                <td><div className="flex items-center justify-center w-[180px] md:w-[400px] mx-auto">{user.first_name} {user.last_name}</div></td>
-                                <td><Link className="button-1" to={`/single-user/${user.id}`}>Detile</Link></td>
-                            </tr>
+                            <div key={user.id}>
+                                <Link className="" to={`/single-user/${user.id}`}>
+                                    <div className="card-user">
+                                        <div>
+                                            <img className="w-[140px] md:w-[240px] rounded-full lg:text-sm object-cover aspect-square" src={user.avatar} alt={user.first_name} />
+                                        </div>
+                                        <div className="flex flex-col items-center">
+                                            <div className="md:text-xl font font-semibold">{user.first_name} {user.last_name}</div>
+                                            <div className="italic md:text-lg">{user.email}</div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
                         ))}
-                    </table>
+                    </div>
                 ) : (
                     <p>Data not found</p>
                 )
             }
             
-            <div className="my-2 flex justify-end gap-3 w-full">
-                <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={()=>changePage('prev')}>
+            <div className="my-10 flex justify-center gap-3 w-full">
+                <button className="button-page" onClick={()=>changePage('prev')}>
                     ← Prev
                 </button>
-                <button className="bg-green-800 text-white px-3 py-2 hover:cursor-pointer" onClick={()=>changePage('next')}>
+                <button className="button-page" onClick={()=>changePage('next')}>
                     Next →
                 </button>
             </div>

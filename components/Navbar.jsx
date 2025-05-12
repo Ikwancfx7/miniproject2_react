@@ -10,11 +10,11 @@ function Navbar ({currentPage}) {
         return(
             <div className="bg-[rgba(4,144,1,0.2)] shadow">
                 <header className="container mx-auto flex flex-row items-center justify-between px-5 lg:px-10 py-2">
-                    <div className="flex flex-row text-lg lg:text-2xl">
+                    <div className="flex flex-row text-xl lg:text-3xl">
                         <Link 
                             to={'/'}
                             className={`px-3 py-2 rounded-xl text-slate-900 hover:cursor-pointer 
-                                ${currentPage === 'Home' ? "font-bold": "font-normal"}`
+                                ${currentPage === 'Home' ? "font-light md:font-semibold": "font-normal"}`
                             }
                         >
                             <p>Dashboard</p>
@@ -27,7 +27,7 @@ function Navbar ({currentPage}) {
                             className={`px-8 py-2 hover:cursor-pointer
                                 ${currentPage === 'login' ? "text-red-900": "text-red-900 hover:text-red-700"}`
                             }>
-                                <div className="flex flex-row gap-1 items-center text-lg">
+                                <div className="flex flex-row gap-1 items-center text-lg font-semibold">
                                     <div>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

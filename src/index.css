@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 
+/* .body{
+  @apply font-poppins;
+} */
 .button-1{
   @apply flex justify-center text-slate-950 hover:text-slate-700 px-1 py-1 m-2 rounded-2xl hover:cursor-pointer
 }
@@ -15,4 +18,10 @@
 }
 .button-media{
   @apply flex flex-row items-center gap-4 text-blue-600 py-1 px-4 rounded-sm text-lg
+}
+.card-user{
+  @apply  flex flex-col items-center bg-[rgba(4,144,1,0.2)] py-5 lg:py-10 px-5 rounded-xl text-lg gap-2 hover:shadow-sm/80 md:hover:shadow-lg/80 text-[12px] 
+}
+.button-page{
+  @apply bg-green-800 text-white text-[12px] md:text-lg px-2 py-1 rounded-sm md:px-3 md:py-2 hover:cursor-pointer
 }
