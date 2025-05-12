@@ -64,7 +64,7 @@ function Navbar ({currentPage}) {
                     className={`px-8 py-1 rounded-4xl text-slate-50 hover:cursor-pointer
                         ${currentPage === 'daftar' ? "bg-slate-500" : "bg-slate-400 hover:bg-slate-500"}`
                     }>
-                    <p>Daftar</p>
+                    <p>Register</p>
                 </Link>
             </div>
         </header>
