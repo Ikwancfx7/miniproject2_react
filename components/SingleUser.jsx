@@ -37,22 +37,46 @@ function SingleUser () {
         <div>
             <div className="container mx-auto flex flex-col justify-center items-center py-10 px-4 sm:px-6 lg:px-8">
                 {loading ? (
-                    <p>Loading...</p>
+                    <div className="flex justify-center items-center h-screen -mt-30">
+                        <svg className="mr-3 size-20 animate-spin" viewBox="0 0 24 24">
+                            <circle
+                                className="opacity-25"
+                                fill="none"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                                strokeLinecap="round"
+                            >
+                            </circle>
+                            <circle 
+                                className="opacity-80" 
+                                fill="none" cx="12" cy="12" r="10" 
+                                stroke="currentColor" 
+                                strokeWidth="3" 
+                                strokeLinecap="round"
+                                strokeDasharray="60"
+                                strokeDashoffset="30"
+                            >    
+                            </circle>
+                        </svg>
+                    </div>
                 ):  user ? (
                     <div className="">
                         <div className="flex flex-col lg:flex-row gap-10">
-                            <div className="bg-slate-200 p-5 shadow-md/70 hover:shadow-lg/70 w-3/4 rounded-2xl">
+                            <div className="flex flex-col bg-[rgba(4,144,1,0.2)] p-10 gap-10 shadow-md/70 hover:shadow-lg/70 w-3/4 rounded-2xl">
                                 <div className="flex justify-start">
-                                    <button onClick={goBack} className="bg-blue-700 hover:bg-blue-800 hover:cursor-pointer text-white font-bold py-1 px-4 rounded">← Go Back</button>
+                                    <button onClick={goBack} className="bg-blue-500 hover:bg-blue-800 hover:cursor-pointer text-white font-bold py-1 px-3 rounded">← Back</button>
                                 </div>
-                                <div className="flex flex-col md:flex-row items-center gap-5 w-full max-w-4xl text-slate-950 mt-10" key={user.id}>
-                                    <div className="py-2">
+                                <div className="flex flex-col md:flex-row items-center gap-5 w-full max-w-4xl text-slate-950" key={user.id}>
+                                    <div className="drop-shadow-xl/80">
                                         <img src={user.avatar} alt={user.first_name} className="rounded-full w-36 h-36 object-cover" />
                                     </div>
                                     <div className="flex flex-col gap-1 text-center md:text-left">
                                         <p className="font-bold text-lg lg:text-2xl">{user.first_name} {user.last_name}</p>
-                                        <p className="italic text-sm lg:text-lg">{user.email}</p>
-                                        <p className="text-sm lg:text-lg">"{support.text}"</p>
+                                        <p className="italic text-sm"><strong>Email: </strong>{user.email}</p>
+                                        <p className="text-sm">"{support.text}"</p>
                                         <div>
                                             <a 
                                                 href={support.url}
@@ -63,40 +87,44 @@ function SingleUser () {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-center items-center gap-5 bg-slate-200 p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl w-1/4">
-                            <div className="flex flex-col gap-3">
-                                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="button-media">
-                                    <FontAwesomeIcon icon={faInstagram} size="2x" />
-                                    <div className="hover:text-shadow-lg/20">
-                                        Instagram
-                                    </div>
-                                </a>
-                                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="button-media">
-                                    <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                                    <div className="hover:text-shadow-lg/20">
-                                        Linkedin
-                                    </div>
-                                </a>
-                                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="button-media">
-                                        <FontAwesomeIcon icon={faTwitter} size="2x"/>
-                                    <div className="hover:text-shadow-lg/20">
-                                        Twitter
-                                    </div>
-                                </a>
-                            </div>
+                            <div className="flex flex-col justify-center items-center gap-5 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl w-1/4">
+                                <div className="flex flex-col gap-3">
+                                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="button-media">
+                                        <FontAwesomeIcon icon={faInstagram} size="2x" />
+                                        <div className="hover:text-shadow-lg/20">
+                                            Instagram
+                                        </div>
+                                    </a>
+                                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="button-media">
+                                        <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                                        <div className="hover:text-shadow-lg/20">
+                                            Linkedin
+                                        </div>
+                                    </a>
+                                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="button-media">
+                                            <FontAwesomeIcon icon={faTwitter} size="2x"/>
+                                        <div className="hover:text-shadow-lg/20">
+                                            Twitter
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-col lg:flex-row items-center mt-10 gap-5 text-sm lg:text-lg">
-                            <div className="flex flex-col items-center w-1/3 bg-slate-200 p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
-                                <h3 className="font-semibold">Portofolio:</h3>
-                                <ul className="">
-                                    <li>Website E-Commerce - React & Firebase</li>
-                                    <li>Aplikasi To-Do - JavaScript</li>
-                                    <li>Company Profile - HTML & Tailwind</li>
-                                </ul>
+                        <div className="flex flex-col lg:flex-row items-center mt-5 gap-5 text-sm">
+                            <div className="flex flex-col items-center w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                                <div>
+                                    <h3 className="font-semibold text-lg">Portofolio:</h3>
+                                </div>
+                                <div>
+                                    <ul className="">
+                                        <li>Website E-Commerce - React & Firebase</li>
+                                        <li>Aplikasi To-Do - JavaScript</li>
+                                        <li>Company Profile - HTML & Tailwind</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="flex flex-col items-center w-1/3 h-full bg-slate-200 p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
-                                <div className="flex justify-start items-start font-semibold">
+                            <div className="flex flex-col items-center w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                                <div className="flex justify-start items-start font-semibold text-lg">
                                     <h3 >Skills:</h3>
                                 </div>
                                 <div>
@@ -108,9 +136,25 @@ function SingleUser () {
 
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-5 w-1/3 h-full bg-slate-200 p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
-                                <p className="mt-2 ">Location: Jakarta</p>
-                                <p className="">Bio: Seorang developer React yang antusias membangun UI modern.</p>
+                            <div className="flex flex-col items-center w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                                <div className="flex justify-start items-start font-semibold text-lg">
+                                    <h3>Experience:</h3>
+                                </div>
+                                <div>
+                                    <ul className="">
+                                        <li>Google (Alphabet Inc.)</li>
+                                        <li>Microsoft</li>
+                                        <li>Samsung Electronics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col w-full h-full gap-1 mt-5 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                            <div>
+                                <p className="mt-2"><span className="text-lg font-semibold">Location: </span>Jakarta</p>
+                            </div>
+                            <div>
+                                <p className="text-sm"><span className="text-lg font-semibold">Bio: </span>An enthusiastic React developer focused on building modern and user-friendly interfaces.</p>
                             </div>
                         </div>
                     </div>
