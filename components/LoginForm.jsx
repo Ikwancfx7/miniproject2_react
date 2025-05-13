@@ -2,11 +2,15 @@ import { Link, useNavigate  } from 'react-router-dom';
 import IconPerson from '../src/assets/IconPerson.png'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import IconShowPassword from '../src/assets/show.png'
+import IconHidePassword from '../src/assets/hide.png'
+
 
 function LoginForm () {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [valid,setValid] = useState(false);
     const Navigate = useNavigate();
@@ -61,32 +65,49 @@ function LoginForm () {
     return (
         <>
             <div className='flex justify-center'>
-                <div className='flex flex-col bg-slate-200 justify-center px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-15'>
+                <div className='flex flex-col justify-center bg-slate-200 px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-15'>
                     <div className='flex flex-col items-center'>
-                        <img 
+                        {/* <img 
                             src={IconPerson} 
-                            className='h-14 md:h-18 aspect-square'/>
-                        <p className='text-xl md:text-2xl text-slate-950'>Login Member</p>
+                            className='h-14 md:h-18 aspect-square'/> */}
+                        <p className='text-xl md:text-2xl text-slate-950'>Welcome!</p>
+                        <p className='text-sm md:text-lg text-slate-950'>Please, login with your account.</p>
                     </div>
                     <form onSubmit={handleLogin} action="" className='flex flex-col gap-7 lg:gap-6 px-5 text-sm lg:text-lg mt-5'>
-                        <div className='flex flex-row h-12 md:h-13'>
-                            <input 
-                                type="text" 
-                                placeholder="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className='rounded-lg px-4 bg-white w-full'/>
+                        <div className='flex flex-col text-lg'>
+                            <div>
+                                <p>Email <span className='text-red-600'>*</span></p>
+                            </div>
+                            <div>
+                                <input 
+                                    type={"text"} 
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className='form-input w-full'/>
+                            </div>
                         </div>
-                        <div className='flex flex-row h-12 md:h-13'>
-                            <input
-                                type="password"
-                                placeholder="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className='rounded-lg px-4 bg-white w-full'/>
+                        <div className='flex flex-col text-lg'>
+                            <div>
+                                <p>Password <span className='text-red-600'>*</span></p>
+                            </div>
+                            <div className='flex flex-row'>
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className='flex h-10 md:h-12 px-4 bg-white w-full'/>
+                                <div className='bg-white flex items-center rounded-r-lg'>
+                                    <img 
+                                        src={showPassword ? IconHidePassword : IconShowPassword} 
+                                        className='h-5 md:h-6 mr-4 aspect-square cursor-pointer'
+                                        onClick={() => setShowPassword(!showPassword)}/>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div className='flex flex-row h-12 md:h-13'>
+                        <div className='flex h-10 md:h-12'>
                             <button
                                 type="submit"
                                 disabled={loading || !valid}
@@ -134,7 +155,7 @@ function LoginForm () {
                     )}
                     <div className='flex justify-start mt-5'>
                         <p className='text-sm lg:text-lg'>
-                            Belum punya akun? <span><Link
+                            Don't have an account? <span><Link
                                 to={'/daftar'} 
                                 className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</Link></span>
                         </p>
