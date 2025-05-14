@@ -75,7 +75,7 @@ function ListUser () {
                     <div className="mt-2 w-full grid grid-cols-3 gap-4">
                         {data.map((user) => (
                             <div key={user.id}>
-                                <Link className="" to={`/single-user/${user.id}`}>
+                                <Link className="" to={`single-user/${user.id}`}>
                                     <div className="card-user">
                                         <div>
                                             <img className="w-[140px] md:w-[240px] rounded-full lg:text-sm object-cover aspect-square" src={user.avatar} alt={user.first_name} />
