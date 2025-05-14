@@ -41,7 +41,7 @@ function LoginForm () {
             localStorage.setItem('token', response.data.token);
             setTimeout(() => {
                 setLoading(false);
-                Navigate('/');
+                Navigate('/dashboard');
             }, 2000);
         } catch (error){
             if(error.response){
