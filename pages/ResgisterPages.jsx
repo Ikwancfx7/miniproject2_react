@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 
 function RegisterPages({currentPage, setCurrentPage}) {
     return (
-        <div className='w-full h-screen bg-slate-100'>
-            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('daftar')}/>
+        <div className='w-full min-h-screen pb-10'>
+            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('register')}/>
             <RegisterForm/>
         </div>
         )

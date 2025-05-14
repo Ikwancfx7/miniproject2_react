@@ -25,3 +25,12 @@
 .button-page{
   @apply bg-green-800 text-white text-[12px] md:text-lg px-2 py-1 rounded-sm md:px-3 md:py-2 hover:cursor-pointer
 }
+.form-input{
+  @apply flex h-10 md:h-12 rounded-lg px-3 bg-white
+}
+.gradient-1{
+  @apply bg-gradient-to-r from-[#D1D1D1] to-[#FFF3DB]
+}
+.gradient-2{
+  @apply bg-gradient-to-r from-[rgba(3,144,1,0.21)] to-[rgba(49,145,0,0.03)]
+}
