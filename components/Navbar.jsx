@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 
-function Navbar ({currentPage}) {
+function Navbar ({currentPage, isForgotPassword}) {
     const token = localStorage.getItem('token');
     const handleLogout = () => {
         localStorage.removeItem('token');
+    }
+
+
+    const Home = () => {
+        return (
+            <div className="flex items-center">
+                <Link to={'/'} className="text-slate-950 text-3xl font-extrabold">Home</Link>
+            </div>
+        )
     }
 
     if(token){
@@ -14,7 +23,7 @@ function Navbar ({currentPage}) {
                         <Link 
                             to={'/'}
                             className={`px-3 py-2 rounded-xl text-slate-900 hover:cursor-pointer 
-                                ${currentPage === 'Home' ? "font-light md:font-semibold": "font-normal"}`
+                                ${currentPage === 'dashboard' ? "font-light md:font-semibold": "font-normal"}`
                             }
                         >
                             <p>Dashboard</p>
@@ -49,26 +58,35 @@ function Navbar ({currentPage}) {
     }
 
     return (
-        <>
-        <header className="flex flex-row justify-center px-20">
-            <div className="flex flex-row gap-5 py-4">
-                <Link
-                    to={'/login'}
-                    className={` px-8 py-1 rounded-4xl text-slate-50 hover:cursor-pointer
-                        ${currentPage === 'login' ? "bg-slate-500": "bg-slate-400 hover:bg-slate-500"}`
-                    }>
-                    <p>Login</p>
-                </Link>
-                <Link 
-                    to={'/daftar'}
-                    className={`px-8 py-1 rounded-4xl text-slate-50 hover:cursor-pointer
-                        ${currentPage === 'daftar' ? "bg-slate-500" : "bg-slate-400 hover:bg-slate-500"}`
-                    }>
-                    <p>Register</p>
-                </Link>
-            </div>
-        </header>
-        </>
+        <div>
+            {isForgotPassword ? (
+                <header>
+                    <div className="flex flex-row justify-center px-20 py-4 bg-slate-100">
+                        <p className="text-slate-950 text-2xl font-semibold">Change Password Request</p>
+                    </div>
+                </header>
+            ):(
+                <header className="container mx-auto flex flex-row justify-between px-6 md:px-20">
+                    <Home />
+                    <div className="flex flex-row gap-5 py-4">
+                        <Link
+                            to={'/login'}
+                            className={`flex justify-center items-center w-24 h-10 rounded-lg hover:cursor-pointer
+                                ${currentPage === 'login' ? "text-slate-50 bg-slate-500": "text-slate-950 bg-slate-100 border border-slate-950 hover:text-slate-50 hover:bg-slate-500"}`
+                            }>
+                            <p>Login</p>
+                        </Link>
+                        <Link 
+                            to={'/register'}
+                            className={`flex justify-center items-center w-24 h-10 rounded-lg hover:cursor-pointer
+                                ${currentPage === 'register' ? "text-slate-50 bg-slate-500" : "text-slate-950 bg-slate-100 border border-slate-950 hover:text-slate-50 hover:bg-slate-500"}`
+                            }>
+                            <p>Register</p>
+                        </Link>
+                    </div>
+                </header>
+            )}
+        </div>
     );
 };
 
