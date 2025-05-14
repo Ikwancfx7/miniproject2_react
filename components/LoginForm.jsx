@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import IconShowPassword from '../src/assets/show.png'
 import IconHidePassword from '../src/assets/hide.png'
+import LoadingAnimation from './LoadingAnimation';
 
 
 function LoginForm () {
@@ -12,7 +13,7 @@ function LoginForm () {
     const [message, setMessage] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [valid,setValid] = useState(false);
+    const [valid, setValid] = useState(false);
     const Navigate = useNavigate();
     const API = 'https://reqres.in/api/login';
 
@@ -66,15 +67,11 @@ function LoginForm () {
         <>
             <div className='flex justify-center'>
                 <div className='flex flex-col justify-center bg-slate-200 px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-15'>
-                    <div className='flex flex-col items-center'>
-                        {/* <img 
-                            src={IconPerson} 
-                            className='h-14 md:h-18 aspect-square'/> */}
-                        <p className='text-xl md:text-2xl text-slate-950'>Welcome!</p>
-                        <p className='text-sm md:text-lg text-slate-950'>Please, login with your account.</p>
+                    <div className='flex'>
+                        <p className='flex justify-center text-sm md:text-lg text-slate-950 w-75 md:w-95'>Welcome back! Please login to your account</p>
                     </div>
-                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-7 lg:gap-6 px-5 text-sm lg:text-lg mt-5'>
-                        <div className='flex flex-col text-lg'>
+                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-7 lg:gap-6 text-sm lg:text-lg mt-5'>
+                        <div className='flex flex-col text-sm md:text-lg'>
                             <div>
                                 <p>Email <span className='text-red-600'>*</span></p>
                             </div>
@@ -87,27 +84,29 @@ function LoginForm () {
                                     className='form-input w-full'/>
                             </div>
                         </div>
-                        <div className='flex flex-col text-lg'>
+                        <div className='flex flex-col text-sm md:text-lg'>
                             <div>
                                 <p>Password <span className='text-red-600'>*</span></p>
                             </div>
-                            <div className='flex flex-row'>
+                            <div className='relative flex'>
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Enter your password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className='flex h-10 md:h-12 px-4 bg-white w-full'/>
-                                <div className='bg-white flex items-center rounded-r-lg'>
-                                    <img 
-                                        src={showPassword ? IconHidePassword : IconShowPassword} 
-                                        className='h-5 md:h-6 mr-4 aspect-square cursor-pointer'
-                                        onClick={() => setShowPassword(!showPassword)}/>
-                                </div>
+                                    className='form-input w-full'/>
+                                <img
+                                    src={showPassword ? IconHidePassword : IconShowPassword}
+                                    alt="toggle visibility"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-3 bottom-1/2 transform translate-y-1/2 h-4 md:h-5 cursor-pointer"
+                                />
                             </div>
                         </div>
-                        
-                        <div className='flex h-10 md:h-12'>
+                        <div>
+                            <Link to={'/forgot-password'} className='text-sm md:text-lg hover:text-slate-700'>Forgot Password?</Link>
+                        </div>
+                        <div className='flex h-10 md:h-12 text-sm md:text-lg'>
                             <button
                                 type="submit"
                                 disabled={loading || !valid}
@@ -116,29 +115,7 @@ function LoginForm () {
                                 {loading ? (
                                     <div className='flex flex-row justify-center items-center'>
                                         <div>
-                                            <svg className="mr-3 size-5 animate-spin" viewBox="0 0 24 24">
-                                                <circle
-                                                    className="opacity-25"
-                                                    fill="none"
-                                                    cx="12"
-                                                    cy="12"
-                                                    r="10"
-                                                    stroke="currentColor"
-                                                    strokeWidth="4"
-                                                    strokeLinecap="round"
-                                                >
-                                                </circle>
-                                                <circle 
-                                                    className="opacity-80" 
-                                                    fill="none" cx="12" cy="12" r="10" 
-                                                    stroke="currentColor" 
-                                                    strokeWidth="4" 
-                                                    strokeLinecap="round"
-                                                    strokeDasharray="60"
-                                                    strokeDashoffset="30"
-                                                >    
-                                                </circle>
-                                            </svg>
+                                            <LoadingAnimation/>
                                         </div>
                                         <div>Login</div>
                                     </div>
@@ -148,6 +125,7 @@ function LoginForm () {
                             </button>
                         </div>
                     </form>
+                    
                     {message && (
                         <div className='mt-5'>
                             <p className={`text-center lg:text-lg ${message === 'Login success' ? 'text-green-600' : 'text-red-600'}`}>{message}</p>
@@ -156,8 +134,8 @@ function LoginForm () {
                     <div className='flex justify-start mt-5'>
                         <p className='text-sm lg:text-lg'>
                             Don't have an account? <span><Link
-                                to={'/daftar'} 
-                                className={`text-slate-700 hover:text-slate-900`} href="#">Daftar</Link></span>
+                                to={'/register'} 
+                                className={`text-slate-700 hover:text-slate-900`} href="#">Register</Link></span>
                         </p>
                     </div>
                 </div>

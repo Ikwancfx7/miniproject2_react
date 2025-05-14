@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 function LoginPages ({currentPage, setCurrentPage}) {
     return (
         <>
-        <div className='w-full h-screen bg-slate-100'>
+        <div className='w-full min-h-screen'>
             <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('login')}/>
             <LoginForm/>
         </div>
