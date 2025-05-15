@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes >
-        <Route path='/' element={<LandingPage/>}/>
+        <Route path='/' element={<LandingPage currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
         <Route path='/dashboard' element={<ProtectedRouted><Dashboard currentPage={currentPage} setCurrentPage={setCurrentPage}/></ProtectedRouted>}>
           <Route index element={<ListUser/>}/>
           <Route path='single-user/:id' element={<SingleUser/>}/>
