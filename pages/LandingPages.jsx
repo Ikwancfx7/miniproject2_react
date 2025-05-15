@@ -7,7 +7,7 @@ function LandingPage ({currentPage, setCurrentPage}) {
             <div>
                 <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('landing')}/>
             </div>
-            <div className="h-screen py-30 px-10 md:py-10 md:px-20 ">
+            <div className="py-15 md:py-10 ">
                 <Landing/>
             </div>
         </div>
