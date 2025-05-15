@@ -80,11 +80,14 @@ function RegisterForm () {
     return (
         <>
             <div className="flex justify-center">
-                <div className='flex flex-col justify-center items-center px-8 py-10 bg-slate-200 rounded-lg shadow-sm/70 mt-10 md:mt-15'>
+                <div className='flex flex-col justify-center items-center px-3 py-8 bg-slate-200 rounded-lg shadow-sm/70 mt-10'>
                     <p className='text-xl md:text-2xl text-slate-950'>Welcome!</p>
                     <p className='text-lg text-slate-950'>Register to Create Your Account.</p>
-                    <form onSubmit={handleSubmit} className='flex flex-col text-sm md:text-lg gap-7 lg:gap-6 md:gap-4 px-5 mt-5'>
-                        <div>
+                    <form onSubmit={handleSubmit} className='flex flex-col text-sm md:text-lg gap-7 lg:gap-3 md:gap-4 px-5 mt-5'>
+                        <div className='flex flex-col text-sm md:text-lg'>
+                            <div>
+                                <p>Email <span className='text-red-600'>*</span></p>
+                            </div>
                             <input 
                                 type="text" 
                                 placeholder="Enter your email"
@@ -92,33 +95,45 @@ function RegisterForm () {
                                 onChange={(e) => setEmail(e.target.value)}
                                 className='form-input w-full'/>
                         </div>
-                        <div className='relative flex'>
-                            <input
-                                type={showPassword ? 'text' : 'password'}
-                                placeholder="Masukkan password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className='form-input w-full'/>
-                            <img
-                            src={showPassword ? IconHidePassword : IconShowPassword}
-                            alt="toggle visibility"
-                            onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 bottom-1/2 transform translate-y-1/2 h-4 md:h-5 cursor-pointer"
-                            />
-                        </div>
-                        <div className='relative flex'>
-                            <input
-                                type={showRePassword ? 'text' : 'password'}
-                                placeholder="Confirm your password"
-                                value={rePassword}
-                                onChange={(e) => setRePassword(e.target.value)}
-                                className='form-input w-full'/>
-                            <img
-                                src={showRePassword ? IconHidePassword : IconShowPassword}
+                        <div className='flex flex-col text-sm md:text-lg'>
+                            <div>
+                                <p>Password <span className='text-red-600'>*</span></p>
+                            </div>
+                            <div className='relative flex'>
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    placeholder="Masukkan password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className='form-input w-full'/>
+                                <img
+                                src={showPassword ? IconHidePassword : IconShowPassword}
                                 alt="toggle visibility"
-                                onClick={() => setShowRePassword(!showRePassword)}
+                                onClick={() => setShowPassword(!showPassword)}
                                 className="absolute right-3 bottom-1/2 transform translate-y-1/2 h-4 md:h-5 cursor-pointer"
-                            />
+                                />
+                            </div>
+
+                        </div>
+                        <div className='flex flex-col text-sm md:text-lg'>
+                            <div>
+                                <p>Confirm Password <span className='text-red-600'>*</span></p>
+                            </div>
+                            <div className='relative flex'>
+                                <input
+                                    type={showRePassword ? 'text' : 'password'}
+                                    placeholder="Confirm your password"
+                                    value={rePassword}
+                                    onChange={(e) => setRePassword(e.target.value)}
+                                    className='form-input w-full'/>
+                                <img
+                                    src={showRePassword ? IconHidePassword : IconShowPassword}
+                                    alt="toggle visibility"
+                                    onClick={() => setShowRePassword(!showRePassword)}
+                                    className="absolute right-3 bottom-1/2 transform translate-y-1/2 h-4 md:h-5 cursor-pointer"
+                                />
+                            </div>
+
                         </div>
                         <div>
                             <button
