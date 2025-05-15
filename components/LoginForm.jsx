@@ -66,11 +66,11 @@ function LoginForm () {
     return (
         <>
             <div className='flex justify-center'>
-                <div className='flex flex-col justify-center bg-slate-200 px-8 py-10 items-center rounded-lg shadow-sm/70 mt-10 md:mt-15'>
+                <div className='flex flex-col justify-center bg-slate-200 px-3 py-8 items-center rounded-lg shadow-sm/70 mt-10 md:mt-15'>
                     <div className='flex'>
                         <p className='flex justify-center text-sm md:text-lg text-slate-950 w-75 md:w-95'>Welcome back! Please login to your account</p>
                     </div>
-                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-7 lg:gap-6 text-sm lg:text-lg mt-5'>
+                    <form onSubmit={handleLogin} action="" className='flex flex-col gap-7 lg:gap-6 text-sm lg:text-lg px-5 mt-5'>
                         <div className='flex flex-col text-sm md:text-lg'>
                             <div>
                                 <p>Email <span className='text-red-600'>*</span></p>
