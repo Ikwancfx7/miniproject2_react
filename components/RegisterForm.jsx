@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingAnimation from "./LoadingAnimation";
+import IconShowPassword from '../src/assets/show.png'
+import IconHidePassword from '../src/assets/hide.png'
 
 function RegisterForm () {
     const [email, setEmail] = useState('');
@@ -11,6 +13,8 @@ function RegisterForm () {
     const [loading, setLoading] = useState(false);
     const [valid,setValid] = useState(false);
     const Navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [showRePassword, setShowRePassword] = useState(false);
 
     const buttonValid = () => {
         const isValid = email.trim() !== '' && password.trim() !== '' && rePassword.trim() !== '';
@@ -76,7 +80,7 @@ function RegisterForm () {
     return (
         <>
             <div className="flex justify-center">
-                <div className='flex flex-col justify-center items-center px-8 py-10 bg-slate-200 rounded-lg shadow-xl/70 mt-10 md:mt-15'>
+                <div className='flex flex-col justify-center items-center px-8 py-10 bg-slate-200 rounded-lg shadow-sm/70 mt-10 md:mt-15'>
                     <p className='text-xl md:text-2xl text-slate-950'>Welcome!</p>
                     <p className='text-lg text-slate-950'>Register to Create Your Account.</p>
                     <form onSubmit={handleSubmit} className='flex flex-col text-sm md:text-lg gap-7 lg:gap-6 md:gap-4 px-5 mt-5'>
@@ -88,21 +92,33 @@ function RegisterForm () {
                                 onChange={(e) => setEmail(e.target.value)}
                                 className='form-input w-full'/>
                         </div>
-                        <div>
+                        <div className='relative flex'>
                             <input
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                                 placeholder="Masukkan password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className='form-input w-full'/>
+                            <img
+                            src={showPassword ? IconHidePassword : IconShowPassword}
+                            alt="toggle visibility"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 bottom-1/2 transform translate-y-1/2 h-4 md:h-5 cursor-pointer"
+                            />
                         </div>
-                        <div>
+                        <div className='relative flex'>
                             <input
-                                type="password"
+                                type={showRePassword ? 'text' : 'password'}
                                 placeholder="Confirm your password"
                                 value={rePassword}
                                 onChange={(e) => setRePassword(e.target.value)}
                                 className='form-input w-full'/>
+                            <img
+                                src={showRePassword ? IconHidePassword : IconShowPassword}
+                                alt="toggle visibility"
+                                onClick={() => setShowRePassword(!showRePassword)}
+                                className="absolute right-3 bottom-1/2 transform translate-y-1/2 h-4 md:h-5 cursor-pointer"
+                            />
                         </div>
                         <div>
                             <button
