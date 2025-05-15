@@ -10,7 +10,7 @@ function Navbar ({currentPage, isForgotPassword}) {
     const Home = () => {
         return (
             <div className="flex items-center">
-                <Link to={'/'} className="text-slate-950 text-3xl font-extrabold">Home</Link>
+                <Link to={'/'} className="text-slate-950 text-lg md:text-3xl font-semibold md:font-bold">Home</Link>
             </div>
         )
     }
@@ -68,21 +68,24 @@ function Navbar ({currentPage, isForgotPassword}) {
             ):(
                 <header className="container mx-auto flex flex-row justify-between px-6 md:px-20">
                     <Home />
-                    <div className="flex flex-row gap-5 py-4">
+                    <div className="flex flex-row gap-2 md:gap-5 py-4 text-[12px] md:text-[16px]">
                         <Link
                             to={'/login'}
-                            className={`flex justify-center items-center w-24 h-10 rounded-lg hover:cursor-pointer
-                                ${currentPage === 'login' ? "text-slate-50 bg-slate-500": "text-slate-950 bg-slate-100 border border-slate-950 hover:text-slate-50 hover:bg-slate-500"}`
+                            className={`flex justify-center items-center w-15 h-7 md:w-24 md:h-10 rounded-sm md:rounded-lg hover:cursor-pointer
+                                ${currentPage === 'login' ? "text-slate-50 bg-slate-700 shadow-lg/30" : "text-slate-950 border border-slate-950 hover:text-slate-50 hover:bg-slate-700"}`
                             }>
                             <p>Login</p>
                         </Link>
-                        <Link 
-                            to={'/register'}
-                            className={`flex justify-center items-center w-24 h-10 rounded-lg hover:cursor-pointer
-                                ${currentPage === 'register' ? "text-slate-50 bg-slate-500" : "text-slate-950 bg-slate-100 border border-slate-950 hover:text-slate-50 hover:bg-slate-500"}`
-                            }>
-                            <p>Register</p>
-                        </Link>
+                        {currentPage !== 'landing' && 
+                            <Link 
+                                to={'/register'}
+                                className={`flex justify-center items-center w-15 h-7 md:w-24 md:h-10 rounded-sm md:rounded-lg hover:cursor-pointer
+                                    ${currentPage === 'register' ? "text-slate-50 bg-slate-700 shadow-lg/30" : "text-slate-950 border border-slate-950 hover:text-slate-50 hover:bg-slate-700"}`
+                                }>
+                                <p>Register</p>
+                            </Link>
+                        }
+                        
                     </div>
                 </header>
             )}
