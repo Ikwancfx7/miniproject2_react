@@ -1,13 +1,13 @@
 import Navbar from "../components/Navbar";
 import Landing from "../components/Landing";
 
-function LandingPage () {
+function LandingPage ({currentPage, setCurrentPage}) {
     return (
-        <div className="h-screen">
-            <div className="bg-white">
-                <Navbar/>
+        <div className="min-h-screen gradient-1">
+            <div>
+                <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('landing')}/>
             </div>
-            <div className="bg-slate-100 h-screen py-10 px-20 gradient-1">
+            <div className="h-screen py-30 px-10 md:py-10 md:px-20 ">
                 <Landing/>
             </div>
         </div>

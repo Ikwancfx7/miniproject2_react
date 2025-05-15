@@ -5,7 +5,9 @@ function LoginPages ({currentPage, setCurrentPage}) {
     return (
         <>
         <div className='w-full min-h-screen'>
-            <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('login')}/>
+            <div className="bg-slate-200">
+                <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('login')}/>
+            </div>
             <LoginForm/>
         </div>
         </>
