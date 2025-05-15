@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar ({currentPage, isForgotPassword}) {
     const token = localStorage.getItem('token');
+    const Navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('token');
+        Navigate('/');
+
     }
 
 
@@ -30,8 +33,7 @@ function Navbar ({currentPage, isForgotPassword}) {
                         </Link>
                     </div>
                     <div className="flex flex-row">
-                        <Link
-                            to={'/login'} 
+                        <button
                             onClick={handleLogout}
                             className={`px-8 py-2 hover:cursor-pointer
                                 ${currentPage === 'login' ? "text-red-900": "text-red-900 hover:text-red-700"}`
@@ -50,7 +52,7 @@ function Navbar ({currentPage, isForgotPassword}) {
                                     </div>
                                     <div>Logout</div>
                                 </div>
-                        </Link>
+                        </button>
                     </div>
                 </header>
             </div>
