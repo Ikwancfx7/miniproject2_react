@@ -66,7 +66,7 @@ function LoginForm () {
     return (
         <>
             <div className='flex justify-center'>
-                <div className='flex flex-col justify-center bg-slate-200 px-8 py-10 items-center rounded-lg shadow-xl/70 mt-10 md:mt-15'>
+                <div className='flex flex-col justify-center bg-slate-200 px-8 py-10 items-center rounded-lg shadow-sm/70 mt-10 md:mt-15'>
                     <div className='flex'>
                         <p className='flex justify-center text-sm md:text-lg text-slate-950 w-75 md:w-95'>Welcome back! Please login to your account</p>
                     </div>
