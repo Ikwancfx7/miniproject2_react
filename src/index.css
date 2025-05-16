@@ -34,3 +34,6 @@
 .gradient-2{
   @apply bg-gradient-to-r from-[rgba(3,144,1,0.21)] to-[rgba(49,145,0,0.03)]
 }
+.partner{
+  @apply w-12 h-12 rounded-lg shadow-sm/80
+}
