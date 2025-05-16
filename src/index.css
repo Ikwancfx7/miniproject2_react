@@ -17,7 +17,7 @@
   padding: 2px 10px 2px 10px;
 }
 .button-media{
-  @apply flex flex-row items-center gap-4 text-blue-600 py-1 px-4 rounded-sm text-lg
+  @apply flex flex-row items-center gap-1 md:gap-4 text-blue-600 py-1 px-4 rounded-sm text-sm md:text-lg
 }
 .card-user{
   @apply  flex flex-col items-center bg-[rgba(4,144,1,0.2)] py-5 lg:py-10 px-5 rounded-xl text-lg gap-2 hover:shadow-sm/80 md:hover:shadow-lg/80 text-[12px] 
