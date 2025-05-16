@@ -19,7 +19,7 @@ function App() {
         <Route path='/' element={<LandingPage currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
         <Route path='/dashboard' element={<ProtectedRouted><Dashboard currentPage={currentPage} setCurrentPage={setCurrentPage}/></ProtectedRouted>}>
           <Route index element={<ListUser/>}/>
-          <Route path='single-user/:id' element={<SingleUser/>}/>
+          <Route path='user/:id' element={<SingleUser/>}/>
         </Route>
         <Route path='/login' element={<LoginPages currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
         <Route path='/register' element={<RegisterPages currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
