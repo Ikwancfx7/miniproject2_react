@@ -24,7 +24,7 @@ function Navbar ({currentPage, isForgotPassword}) {
                 <header className="container mx-auto flex flex-row items-center justify-between px-5 lg:px-10 py-2">
                     <div className="flex flex-row text-xl lg:text-3xl">
                         <Link 
-                            to={'/'}
+                            to={'/dashboard'}
                             className={`px-3 py-2 rounded-xl text-slate-900 hover:cursor-pointer 
                                 ${currentPage === 'dashboard' ? "font-light md:font-semibold": "font-normal"}`
                             }
