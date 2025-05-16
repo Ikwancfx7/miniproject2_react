@@ -24,7 +24,6 @@ function App() {
         <Route path='/login' element={<LoginPages currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
         <Route path='/register' element={<RegisterPages currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
         <Route path='/forgot-password' element={<ForgotPasswordPages isForgotPassword={isForgotPassword} setIsForgotPassword={setIsForgotPassword}/>}/>
-        {/* <Route path='/single-user/:id' element={<SingleUser/>}/> */}
       </Routes>
     </BrowserRouter>
   )
