@@ -64,8 +64,8 @@ function SingleUser () {
                     </div>
                 ):  user ? (
                     <div className="">
-                        <div className="flex flex-col lg:flex-row gap-10">
-                            <div className="flex flex-col bg-[rgba(4,144,1,0.2)] p-10 gap-10 shadow-md/70 hover:shadow-lg/70 w-3/4 rounded-2xl">
+                        <div className="flex flex-col md:flex-row gap-10">
+                            <div className="flex flex-col bg-[rgba(4,144,1,0.2)] p-10 gap-10 shadow-md/70 hover:shadow-lg/70 md:w-3/4 rounded-2xl">
                                 <div className="flex justify-start">
                                     <button onClick={goBack} className="bg-blue-500 hover:bg-blue-800 hover:cursor-pointer text-white font-bold py-1 px-3 rounded">← Back</button>
                                 </div>
@@ -87,8 +87,8 @@ function SingleUser () {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-center items-center gap-5 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl w-1/4">
-                                <div className="flex flex-col gap-3">
+                            <div className="flex flex-col justify-center items-center gap-5 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl md:w-1/4">
+                                <div className="flex flex-row md:flex-col md:gap-3">
                                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="button-media">
                                         <FontAwesomeIcon icon={faInstagram} size="2x" />
                                         <div className="hover:text-shadow-lg/20">
@@ -110,12 +110,12 @@ function SingleUser () {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col lg:flex-row items-center mt-5 gap-5 text-sm">
-                            <div className="flex flex-col items-center w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                        <div className="flex flex-col lg:flex-row lg:items-center mt-5 gap-5 text-sm">
+                            <div className="flex flex-col items-center lg:w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
                                 <div>
                                     <h3 className="font-semibold text-lg">Portofolio:</h3>
                                 </div>
-                                <div>
+                                <div className="w-full max-w-sm break-words">
                                     <ul className="">
                                         <li>Website E-Commerce - React & Firebase</li>
                                         <li>Aplikasi To-Do - JavaScript</li>
@@ -123,7 +123,7 @@ function SingleUser () {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                            <div className="flex flex-col items-center lg:w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
                                 <div className="flex justify-start items-start font-semibold text-lg">
                                     <h3 >Skills:</h3>
                                 </div>
@@ -136,7 +136,7 @@ function SingleUser () {
 
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
+                            <div className="flex flex-col items-center lg:w-1/3 lg:h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
                                 <div className="flex justify-start items-start font-semibold text-lg">
                                     <h3>Experience:</h3>
                                 </div>
