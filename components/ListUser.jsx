@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 function ListUser () {
     const [data, setData] = useState(null);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
+    const [originalData, setOriginalData] = useState([]);
     const API = `https://reqres.in/api/users?page=`;
 
     const getUser = async () => {
@@ -18,6 +20,7 @@ function ListUser () {
                 }
             });
             setData(response.data.data);
+            setOriginalData(response.data.data);
             setTotalPages(response.data.total_pages);
             setLoading(false);
         } catch (error) {
@@ -38,13 +41,27 @@ function ListUser () {
             }))
     }
 
+    const handleSearch = (searchTerm) => {
+        if(searchTerm === ""){
+            setData(originalData);
+        } else {
+            const filteredData = originalData.filter((user) => user.first_name.toLowerCase().includes(searchTerm.toLowerCase()));
+            setData(filteredData);
+        }
+    }
+
     useEffect(() => {
         getUser();
     }, [page]);
 
     return (
         <div className="pt-3 pb-10 lg:py-5 lg:px-30">
-            <p className="flex content-center justify-center text-lg lg:text-3xl font-semibold mb-5">Users Profile</p>
+            <div className="flex flex-row justify-between">
+                <p className="flex content-center justify-center text-lg lg:text-3xl font-semibold mb-5">Users Profile</p>
+                <div className="p-4 max-w-md">
+                    <SearchBar onSearch={handleSearch} data={data} setData={setData} />
+                </div>
+            </div>
             {loading ? (
                 <div className="flex justify-center items-center h-screen -mt-30">
                         <svg className="mr-3 size-20 animate-spin" viewBox="0 0 24 24">
