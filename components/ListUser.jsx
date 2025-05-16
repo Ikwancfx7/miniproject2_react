@@ -7,7 +7,7 @@ function ListUser () {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(true);
-    const API = `https://reqres.in/api/users?page=`
+    const API = `https://reqres.in/api/users?page=`;
 
     const getUser = async () => {
         try {
@@ -43,7 +43,7 @@ function ListUser () {
     }, [page]);
 
     return (
-        <div className="py-7 lg:py-10 lg:px-30">
+        <div className="pt-3 pb-10 lg:py-5 lg:px-30">
             <p className="flex content-center justify-center text-lg lg:text-3xl font-semibold mb-5">Users Profile</p>
             {loading ? (
                 <div className="flex justify-center items-center h-screen -mt-30">
@@ -72,17 +72,17 @@ function ListUser () {
                         </svg>
                     </div>
             ):  data ? (
-                    <div className="mt-2 w-full grid grid-cols-3 gap-4">
+                    <div className="mt-2 w-full grid grid-cols-2 md:grid-cols-3 gap-4">
                         {data.map((user) => (
                             <div key={user.id}>
-                                <Link className="" to={`single-user/${user.id}`}>
+                                <Link className="" to={`user/${user.id}`}>
                                     <div className="card-user">
                                         <div>
                                             <img className="w-[140px] md:w-[240px] rounded-full lg:text-sm object-cover aspect-square" src={user.avatar} alt={user.first_name} />
                                         </div>
                                         <div className="flex flex-col items-center">
-                                            <div className="md:text-xl font font-semibold">{user.first_name} {user.last_name}</div>
-                                            <div className="italic md:text-lg">{user.email}</div>
+                                            <div className="md:text-lg lg:text-xl font font-semibold">{user.first_name} {user.last_name}</div>
+                                            <div className="italic text-sm lg:text-lg">{user.email}</div>
                                         </div>
                                     </div>
                                 </Link>
@@ -94,11 +94,11 @@ function ListUser () {
                 )
             }
             
-            <div className="my-10 flex justify-center gap-3 w-full">
-                <button className="button-page" onClick={()=>changePage('prev')}>
+            <div className="mt-10 flex justify-center gap-3 w-full">
+                <button className={`button-page ${page === 1 && 'opacity-50 pointer-events-none'}`} onClick={()=>changePage('prev')}>
                     ← Prev
                 </button>
-                <button className="button-page" onClick={()=>changePage('next')}>
+                <button className={`button-page ${page === totalPages && 'opacity-50 pointer-events-none'}`} onClick={()=>changePage('next')}>
                     Next →
                 </button>
             </div>

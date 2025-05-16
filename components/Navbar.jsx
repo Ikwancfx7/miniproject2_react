@@ -38,7 +38,7 @@ function Navbar ({currentPage, isForgotPassword}) {
                             className={`px-8 py-2 hover:cursor-pointer
                                 ${currentPage === 'login' ? "text-red-900": "text-red-900 hover:text-red-700"}`
                             }>
-                                <div className="flex flex-row gap-1 items-center text-lg font-semibold">
+                                <div className="flex flex-row gap-1 items-center text-sm md:text-lg font-semibold">
                                     <div>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

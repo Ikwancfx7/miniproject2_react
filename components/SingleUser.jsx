@@ -35,7 +35,7 @@ function SingleUser () {
 
     return (
         <div>
-            <div className="container mx-auto flex flex-col justify-center items-center py-10 px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto flex flex-col justify-center items-center pt-3 pb-10 px-4 sm:px-6 lg:px-8">
                 {loading ? (
                     <div className="flex justify-center items-center h-screen -mt-30">
                         <svg className="mr-3 size-20 animate-spin" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ function SingleUser () {
                         <div className="flex flex-col md:flex-row gap-10">
                             <div className="flex flex-col bg-[rgba(4,144,1,0.2)] p-10 gap-10 shadow-md/70 hover:shadow-lg/70 md:w-3/4 rounded-2xl">
                                 <div className="flex justify-start">
-                                    <button onClick={goBack} className="bg-blue-500 hover:bg-blue-800 hover:cursor-pointer text-white font-bold py-1 px-3 rounded">← Back</button>
+                                    <button onClick={goBack} className="bg-blue-500 hover:bg-blue-800 hover:cursor-pointer text-white font-semibold md:font-bold py-1 px-3 rounded">← Back</button>
                                 </div>
                                 <div className="flex flex-col md:flex-row items-center gap-5 w-full max-w-4xl text-slate-950" key={user.id}>
                                     <div className="drop-shadow-xl/80">
@@ -113,7 +113,7 @@ function SingleUser () {
                         <div className="flex flex-col lg:flex-row lg:items-center mt-5 gap-5 text-sm">
                             <div className="flex flex-col items-center lg:w-1/3 h-36 gap-2 bg-[rgba(4,144,1,0.2)] p-5 shadow-md/70 hover:shadow-lg/70 rounded-2xl">
                                 <div>
-                                    <h3 className="font-semibold text-lg">Portofolio:</h3>
+                                    <h3 className="font-semibold text-lg">Portfolio:</h3>
                                 </div>
                                 <div className="w-full max-w-sm break-words">
                                     <ul className="">

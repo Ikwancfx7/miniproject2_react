@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 function RegisterPages({currentPage, setCurrentPage}) {
     return (
-        <div className='w-full min-h-screen pb-20'>
+        <div className='w-full min-h-screen pb-20 bg-slate-100'>
             <div className="bg-slate-200">
                 <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage('register')}/>
             </div>
