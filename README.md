@@ -1,12 +1,45 @@
-# React + Vite
+# 🧩 React + ReqRes API Integration App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project ini membangun website responsif sebagai implementasi frontend menggunakan React.js yang terhubung dengan API dari [ReqRes](https://reqres.in). Aplikasi ini memungkinkan user untuk register, login, melihat daftar user, serta detail user, lengkap dengan pagination dan route protection.
 
-Currently, two official plugins are available:
+## 📌 Milestone 1 – API Integration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Menggunakan endpoint dari [https://reqres.in](https://reqres.in):
 
-## Expanding the ESLint configuration
+### 🔐 Auth API
+- ✅ `POST /api/register`  
+- ✅ `POST /api/login`  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 👥 User API
+- ✅ `GET /api/users` (List Users)  
+- ✅ `GET /api/users/:id` (Single User)  
+
+## 🎯 Milestone 2 – React Application
+
+### ✅ Fitur Utama:
+- 🔐 **Register** pengguna
+- 🔓 **Login** pengguna
+- 👥 **Menampilkan daftar user**
+- 🔎 **Melihat detail user**
+- 📄 **Pagination** pada halaman daftar user
+- 🔒 **Protected Routes** untuk halaman tertentu
+- 📱 **Responsive Design** untuk desktop dan mobile
+
+## 🛠️ Tech Stack
+
+- ⚛️ **React.js** – Frontend framework
+- ⚡ **Vite** – Build tool dan dev server
+- 📦 **Axios** – Untuk HTTP requests
+- 📁 **React Router DOM** – Routing dan Protected Routes
+- 💅 **Tailwind CSS / CSS Module** – Untuk styling (ubah sesuai yang kamu pakai)
+- 💅 **FontAwesome** - Ikon berbasis SVG untuk mempercantik UI.
+
+## 📦 Instalasi
+
+1. Clone repository:
+   ```bash
+   git clone https://github.com/Ikwancfx7/miniproject2_react
+   cd miniproject2-react
+
+2. Link github.io
+   
