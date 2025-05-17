@@ -13,7 +13,7 @@ function Dashboard ({currentPage, setCurrentPage}) {
                 <div className="container mx-auto px-10">
                     <Breadcrumb />
                 </div>
-                <div className="container mx-auto px-10">
+                <div className="container mx-auto px-10 pb-10">
                     <Outlet />
                 </div>
             </div>
