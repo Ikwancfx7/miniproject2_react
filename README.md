@@ -40,6 +40,4 @@ Menggunakan endpoint dari [https://reqres.in](https://reqres.in):
    ```bash
    git clone https://github.com/Ikwancfx7/miniproject2_react
    cd miniproject2-react
-
-2. Link github.io
    
