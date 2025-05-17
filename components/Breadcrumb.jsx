@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 const Breadcrumb = () => {
   const location = useLocation();
 
-  // Pisah URL berdasarkan slash dan buang yang kosong
   const paths = location.pathname.split('/').filter(Boolean);
 
   return (
