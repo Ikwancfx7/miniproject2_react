@@ -45,7 +45,10 @@ function ListUser () {
         if(searchTerm === ""){
             setData(originalData);
         } else {
-            const filteredData = originalData.filter((user) => user.first_name.toLowerCase().includes(searchTerm.toLowerCase()));
+            const filteredData = originalData.filter((user) => {
+                const fullName = `${user.first_name} ${user.last_name}`.toLowerCase();
+                return fullName.includes(searchTerm.toLowerCase())
+            });
             setData(filteredData);
         }
     }
@@ -56,9 +59,9 @@ function ListUser () {
 
     return (
         <div className="pt-3 pb-10 lg:py-5 lg:px-30">
-            <div className="flex flex-row justify-between">
-                <p className="flex content-center justify-center text-lg lg:text-3xl font-semibold mb-5">Users Profile</p>
-                <div className="p-4 max-w-md">
+            <div className="flex flex-col items-center md:flex-row md:justify-between md:items-center mb-5">
+                <p className="flex content-center justify-center text-lg lg:text-3xl font-semibold">Users Profile</p>
+                <div className="p-4 max-w-md w-3/4 md:w-1/3">
                     <SearchBar onSearch={handleSearch} data={data} setData={setData} />
                 </div>
             </div>
